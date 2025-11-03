@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import Header from "./components/Header"
+import React from "react";
+import "./App.css";
+import NavBar from "./components/NavBar";
+import { BrowserRouter as Router,Route,Routes } from "react-router-dom";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+import Home from "./pages/Home"
+import Weather from "./pages/Weather"
+import About from "./pages/About"
+import Authentifier from "./pages/Auth"
+
+function App(){
+  return(
+    <Router>
+    <div className="app">
+      <Header />
+      <NavBar />
+  
+      <main>
+        <Routes>
+          <Route path="/" element = {<Home />}/>
+          <Route path="/Weather" element = {<Weather />}/>
+          <Route path="/About" element = {<About />}/>
+          <Route path="/Auth" element={<Authentifier />} />
+
+        </Routes>
+      </main>
+
     </div>
-  );
+    </Router>
+  )
 }
-
 export default App;
